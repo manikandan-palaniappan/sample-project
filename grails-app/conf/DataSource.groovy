@@ -88,7 +88,7 @@ environments {
             dbCreate = "update"
             url = "jdbc:mysql://localhost/bookstore?useUnicode=yes&characterEncoding=UTF-8"
             username = "root"
-            password = "root"
+            password = "passw0rd"
         }
     }
 }
