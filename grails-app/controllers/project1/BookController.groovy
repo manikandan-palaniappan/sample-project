@@ -16,7 +16,6 @@ class BookController {
     }
 
     def show(Book bookInstance) {
-        println("test code")
         respond bookInstance
     }
 
