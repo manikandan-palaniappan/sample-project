@@ -15,7 +15,8 @@ class BookController {
         respond Book.list(params), model:[bookInstanceCount: Book.count()]
     }
 
-    def show(Book bookInstance) {        
+    def show(Book bookInstance) {
+        println("test code")
         respond bookInstance
     }
 
