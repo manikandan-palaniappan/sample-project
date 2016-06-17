@@ -24,8 +24,7 @@ class BookController {
     }
 
     @Transactional
-    def save(Book bookInstance) {
-        println("Save method")
+    def save(Book bookInstance) {        
         if (bookInstance == null) {
             notFound()
             return
