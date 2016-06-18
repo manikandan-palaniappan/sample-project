@@ -17,8 +17,7 @@ eventCreateWarStart = { warName, stagingDir ->
         ant.manifest(file: "${stagingDir}/META-INF/MANIFEST.MF", mode: "update") {
             attribute(name: "Build-Time", value: new Date())        
             section(name: "Grails Application") {       
-                attribute(name: "Implementation-Build-Number", value: buildNumber)
-                attribute(name: "Implementation-SCM-Revision", value: scmRevision)
+                attribute(name: "Implementation-Build-Number", value: buildNumber)                
             }
         }
     }
