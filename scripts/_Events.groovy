@@ -6,11 +6,11 @@ eventCreateWarStart = { warName, stagingDir ->
         println("newVersion " +newVersion)
         
         metadata.'app.version' = newVersion
-        metadata.'build.number' = buildNumber
+        metadata.'app.build.number' = buildNumber
         metadata.persist()
 
         ant.propertyfile(file:"${stagingDir}/WEB-INF/classes/application.properties") {
-            entry(key:'build.number', value: buildNumber)
+            entry(key:'app.build.number', value: buildNumber)
             entry(key:'app.version', value: newVersion)
         }
         
