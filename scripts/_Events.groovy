@@ -1,12 +1,12 @@
 eventCreateWarStart = { warName, stagingDir ->
     def buildNumber = System.getenv('BUILD_NUMBER')
-    def newVersion = metadata.'app.version' + '-' + 123
+    def newVersion = metadata.'app.version' + '-' + buildNumber
     if(buildNumber) {
         println("BuildNumber " +buildNumber)
         println("newVersion " +newVersion)
         ant.propertyfile(file:"${stagingDir}/WEB-INF/classes/application.properties") {
             entry(key:'build.number', value: buildNumber)
-            entry(key:'app.version', value: buildNumber)
+            entry(key:'app.version', value: newVersion)
         }
     }
 }
