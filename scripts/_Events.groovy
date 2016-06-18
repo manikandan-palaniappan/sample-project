@@ -1,3 +1,6 @@
+
+import groovy.beans.PropertyReader
+
 eventCreateWarStart = { warName, stagingDir ->
     def buildNumber = System.getenv('BUILD_NUMBER')
     def newVersion = metadata.'app.version' + '-' + buildNumber
@@ -20,6 +23,10 @@ eventCreateWarStart = { warName, stagingDir ->
                 attribute(name: "Implementation-Build-Number", value: buildNumber)                
             }
         }
+        
+        def fileName = "${stagingDir}/WEB-INF/classes/application.properties"
+        def propertyReader = new PropertyReader(fileName);
+        assert propertyReader.'app.version' == newVersion
     }
 }
 
