@@ -20,6 +20,7 @@ class BookController {
     }
 
     def create() {
+        println("in create ")
         respond new Book(params)
     }
 
