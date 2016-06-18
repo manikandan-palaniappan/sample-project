@@ -25,6 +25,8 @@ target(setInfo: "Updates the application properties file") {
     
     props.setProperty("app.build.date", (new Date()).toString());
     
+    props.setProperty("app.version", "1.0.26");
+    
     props.store(new FileWriter(propsFile), "Build Update")
 }
 
