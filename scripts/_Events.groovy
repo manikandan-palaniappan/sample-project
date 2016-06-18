@@ -14,6 +14,7 @@ target(main: "Append a string to the existing version number") {
     depends(checkVersion, parseArguments)
 
     def newVersion = metadata.'app.version' + '-' + 123
+    println("newVersion " +newVersion)
     metadata.'app.version' = newVersion
     metadata.persist()
 }
