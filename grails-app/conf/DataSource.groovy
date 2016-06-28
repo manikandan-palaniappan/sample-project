@@ -86,8 +86,8 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://localhost/bookstore?useUnicode=yes&characterEncoding=UTF-8"
-            username = "root"
+            url = "jdbc:mysql://mysql.dev.opencart.ustglobal.awswest1.prana.kaveri.io/opencart?useUnicode=yes&characterEncoding=UTF-8"
+            username = "foguser"
             password = "passw0rd"
         }
     }
