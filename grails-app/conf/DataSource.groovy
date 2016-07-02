@@ -55,6 +55,21 @@
 //    }
 //}
 
+def env = System.getenv()
+//Print all the environment variables.
+
+def DB_HOST = env['DB_HOST']
+def DB_USER_NAME = env['DB_USER_NAME']
+def DB_PASSWORD = env['DB_PASSWORD']
+def DB_NAME = env['DB_NAME']
+
+println("-----------------------------------------------------")
+println("Host : $DB_HOST")
+println("Username : $DB_USER_NAME")
+println("Password : $DB_PASSWORD") 
+println("DatabaseName : $DB_NAME") 
+println("-----------------------------------------------------")
+
 dataSource {
     pooled = true
     driverClassName = "com.mysql.jdbc.Driver"
@@ -86,10 +101,30 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://mysql.dev.opencart.ustglobal.awswest1.prana.kaveri.io/opencart?useUnicode=yes&characterEncoding=UTF-8"
-            username = "foguser"
-            password = "passw0rd"
+            url = "jdbc:mysql://$DB_HOST/$DB_NAME?useUnicode=yes&characterEncoding=UTF-8"
+            username = "$DB_USER_NAME"
+            password = "$DB_PASSWORD"            
             autoReconnect = true
+            properties {
+               // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
+               jmxEnabled = true
+               initialSize = 5
+               maxActive = 50
+               minIdle = 5
+               maxIdle = 25
+               maxWait = 10000
+               maxAge = 10 * 60000
+               timeBetweenEvictionRunsMillis = 5000
+               minEvictableIdleTimeMillis = 60000
+               validationQuery = "SELECT 1"
+               validationQueryTimeout = 3
+               validationInterval = 15000
+               testOnBorrow = true
+               testWhileIdle = true
+               testOnReturn = false
+               jdbcInterceptors = "ConnectionState"
+               defaultTransactionIsolation = java.sql.Connection.TRANSACTION_READ_COMMITTED               
+            }
         }
     }
 }
