@@ -5,7 +5,7 @@
 		<title>Welcome to Grails</title>
 		<style type="text/css" media="screen">
 			#status {
-                                background:#ffcccc;
+                                background:green;
 				border: .2em solid #fff;
                                 margin: 1%;
 				padding: 0;
